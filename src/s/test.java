@@ -4,7 +4,7 @@ public class test {
   public static void main (String[] args) {
     System.out.println("Hello master");
 
-   // lasst commit master
+   /*lasst commit master*/
     
 }
-}
+ 
