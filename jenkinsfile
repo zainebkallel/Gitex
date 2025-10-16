@@ -1,0 +1,27 @@
+pipeline {
+    agent any //n'importe quel slave , dans notre cas ma machine
+    tools{
+        jdk 'JDK21'
+    }
+    stages{
+        stage('checkout code')
+        {
+         steps{
+             git branch: 'master' , url: 'https://github.com/zainebkallel/Gitex.git'
+         }   
+        }
+        stage('compile code')
+        {
+            steps {
+               sh 'mkdir -p target/classes'
+               sh 'javac -d target/classes src/s/test.java'
+            }
+        }
+        stage('execute code')
+        {
+            steps {
+                sh 'java -cp target/classes s.test'
+            }
+        }
+    }
+}
